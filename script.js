@@ -57,8 +57,51 @@ function homeupcomingtext() {
 }
 
 
+// Intersection Observer for scroll animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing once animation is triggered
+        }
+    });
+}, observerOptions);
+
+// Initialize animations and emailjs
 window.onload = function () {
     emailjs.init("osOerPkbsXjU8BTFC");
+    
+    // Add animations to sections
+    const sections = document.querySelectorAll('.homeintro, .homeaboutus, .homeupcoming, .homegetintouch, .homecontactus');
+    sections.forEach(section => {
+        section.classList.add('animate-on-scroll');
+        observer.observe(section);
+    });
+
+    // Add animations to cards and boxes
+    const cards = document.querySelectorAll('.homeaboutus-bottom-box, .homeupcoming-grid .homeupcoming-left-grid, .homeupcoming-grid .homeupcoming-right-grid');
+    cards.forEach(card => {
+        card.classList.add('animate-on-scroll');
+        observer.observe(card);
+    });
+
+    // Add hover animations to images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.style.transition = 'transform 0.3s ease-in-out';
+        img.addEventListener('mouseover', () => {
+            img.style.transform = 'scale(1.05)';
+        });
+        img.addEventListener('mouseout', () => {
+            img.style.transform = 'scale(1)';
+        });
+    });
 }
 
 function homecontactus_sendemail() {

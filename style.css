@@ -1,3 +1,32 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-on-scroll.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
 body {
     margin: 0; 
     background-color: white; 
@@ -18,7 +47,9 @@ nav {
     padding: -1px 22px; 
     width: 100%; 
     height: 10%; 
-    justify-content: space-between; 
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav .logo-container {
@@ -75,13 +106,22 @@ nav button {
     height: 70%; 
     border-radius: 50% / 100%;
     flex: 0 0 auto; 
-    padding: 0 17.5px; 
+    padding: 0 17.5px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 } 
 
 nav button:hover {
-    transition: 0.2s ease-in; 
     background-color: rgb(196, 196, 196); 
-    color: black; 
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav button:active {
+    transform: translateY(1px);
+    box-shadow: none;
 }
 
 
@@ -91,7 +131,6 @@ nav button:hover {
     width: 100%; 
     height: auto; 
     padding-bottom: 0rem; 
-
     background-image: url("images/HomeIntroImg.png");
     background-attachment: fixed;
     background-position: center;
@@ -99,52 +138,64 @@ nav button:hover {
     background-size: cover;
     position: relative;
     overflow: hidden; 
-    aspect-ratio: 2.4 / 1; 
-} 
-
-.homeintro span {
-    position: relative; 
-    display: inline-block; 
-    font-size: 1.24rem; 
-    width: 23%; 
-    left: 8%; 
-    transform: translateY(50%); 
-    font-family: "Arial Narrow", Arial, sans-serif; 
-    font-weight: 100; 
-} 
-
-.homeintro button {
-    position: relative; 
-    border-width: 0.08rem; 
-    border-radius: 50% / 100%; 
-    width: 6%; 
-    height: 6%; 
-    font-size: auto; 
-    transform: translateY(290%); 
-    left: -15.5%; 
-    background: transparent; 
-    transition: 0.3s ease-in-out; 
-} 
-
-.homeintro button:hover { 
-    background: black; 
-    color: white; 
+    aspect-ratio: 2.4 / 1;
 }
+
+.homeintro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(147,139,225,0.2), rgba(0,0,0,0.1), rgba(147,139,225,0.2));
+    animation: gradientMove 15s ease infinite;
+    background-size: 400% 400%;
+    pointer-events: none;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} 
 
 .homeintro p {
     display: block; 
     font-size: 7rem; 
-    transform: translateY(9.5rem); 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: 0 auto; 
     text-align: center; 
     width: 88%; 
     font-weight: 600; 
-    background: linear-gradient(to right, black, #938BE1, black); /* color1 → color2 → color1 */
+    background: linear-gradient(to right, black, #938BE1, black); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
+    animation: gradientFlow 8s linear infinite;
+    z-index: 2;
 }
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+
+
 
 
 
@@ -516,7 +567,15 @@ nav button:hover {
     border-color: black; 
     background: transparent; 
     color: black; 
-    width: 100%; 
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    padding: 8px 0;
+}
+
+.homecontactus .homecontactus-email-container .homecontactus-email-info-container .homecontactus-email-info-input:focus {
+    outline: none;
+    border-color: #938BE1;
+    transform: translateY(-2px);
 } 
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container .homecontactus-email-row {
@@ -563,12 +622,22 @@ nav button:hover {
     border-radius: 20% / 100%;
     flex: 0 0 auto; 
     border: 1px solid black; 
-    transition: 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 } 
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container .homecontactus-email-info-submit:hover { 
     background: black; 
-    color: white; 
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.homecontactus .homecontactus-email-container .homecontactus-email-info-container .homecontactus-email-info-submit:active {
+    transform: translateY(1px);
+    box-shadow: none;
 } 
 
 
