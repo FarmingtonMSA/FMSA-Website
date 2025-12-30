@@ -1,8 +1,11 @@
 <head>
     <meta charset = "UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>FMSA</title> 
-    <link rel = "icon" type = "image/png" href = "images/FMSALogoTransparent.png"> 
+    <title>FMSA - About Us</title> 
+    <link rel = "icon" type = "image/png" href = "images/FMSALogoTransparent.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
@@ -41,82 +44,141 @@
         </div>
     </nav> 
 
-    <div class = "aboutus">
-        <div class = "aboutus-our-purpose">
-            <div class = "aboutus-our-purpose-left-container">
-                <p>Our Purpose</p>  
-                <img src = "images/AboutUsOurPurpose.jpg"> 
-            </div> 
+    <!-- About Us Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>About FMSA</h1>
+            <p class="about-hero-subtitle">Scholars in Sound - Empowering Young Musicians</p>
+        </div>
+        <div class="about-hero-scroll">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
 
-            <div class = "aboutus-our-purpose-right-container">
-                <p>Farmington Music Student Association is a student-founded organization with a mission to share our music with a wider audience. We are dedicated to showcasing our impact on the lives of those involved in our association, providing a platform for students to express their talent and gain valuable performance experience. Join us in our musical journey!</p>
-                <button>Explore</button>
-            </div>
-        </div> 
-
-        <div class = "aboutus-our-journey">
-            <div class = "aboutus-our-journey-left">
-                <img src="images/AboutUsOurJourneyImg.jpg">
-            </div> 
-
-            <div class = "aboutus-our-journey-right">
-                <h2>Our Journey</h2> 
-                <p>Founded with a passion for music, our association has grown to become a vibrant community of music enthusiasts. From humble beginnings to impactful performances, our history is a testament to our commitment to musical excellence. </p> 
-                <button>Learn More</button>
-            </div>
-        </div> 
-
-        <div class = "aboutus-our-influence">
-            <img src = "images/AboutUsOurInfluence.jpg"> 
-            <div class = "aboutus-our-influence-text">
-                <h2>Our Influence</h2> 
-                <p>Through our music, we aim to inspire, uplift, and connect with our audience. The impact of our performances goes beyond the notes played - it resonates with the hearts and minds of those who experience our music. </p>
-                <button>See More</button>
-            </div>
-        </div> 
-
-        <div class = "aboutus-meet-our-team"> 
-            <div class = "aboutus-meet-our-team-container">
-                <h2>Meet Our Team</h3> 
-                <p>Dedicated musicians and enthusiasts passionate about sharing the joy of music. </p> 
-                <div class = "about-us-meet-our-team-pres-container">
-                    <div class = "aboutus-meet-our-team-Stella-container"> 
-                        <div class = "aboutus-meet-our-team-container-icon">
-                            <div class = "aboutus-meet-our-team-container-icon-circle"></div>
+    <!-- Our Story Section -->
+    <section class="about-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image">
+                    <img src="images/AboutUsOurPurpose.jpg" alt="Our Purpose">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="story-content">
+                    <span class="section-label">Our Story</span>
+                    <h2>A Vision Born from Passion</h2>
+                    <p>Farmington Music Student Association is a student-founded organization with a mission to share our music with a wider audience. We are dedicated to showcasing our impact on the lives of those involved in our association.</p>
+                    <p>Providing a platform for students to express their talent and gain valuable performance experience, we believe in the transformative power of music to connect communities and inspire change.</p>
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Performances</span>
                         </div>
-
-                        <h3>Stella Xulin</h3> 
-                        <p>Co-President, Co-Founder, Events Organizer</p>
-
-                        <div class = "about-us-meet-our-team-social-links">
-                            <a href="https://www.youtube.com/@FarmingtonMSA" target="_blank">
-                                <img src = "https://cdn-icons-png.flaticon.com/128/3670/3670147.png"> 
-                            </a>
-                            <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank">
-                                <img src = "https://cdn-icons-png.flaticon.com/128/15707/15707749.png">
-                            </a>
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Students</span>
                         </div>
-                        
-                    </div> 
-                    <div class = "aboutus-meet-our-team-Amanda-container">
-                        <div class = "aboutus-meet-our-team-container-icon">
-                            <div class = "aboutus-meet-our-team-container-icon-circle"></div>
-                        </div>
-
-                        <h3>Amanda Huang</h3> 
-                        <p>Co-President, Co-Founder, Events Organizer</p>
-
-                        <div class = "about-us-meet-our-team-social-links">
-                            <a href="https://www.youtube.com/@FarmingtonMSA" target="_blank">
-                                <img src = "https://cdn-icons-png.flaticon.com/128/3670/3670147.png"> 
-                            </a>
-                            <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank">
-                                <img src = "https://cdn-icons-png.flaticon.com/128/15707/15707749.png">
-                            </a>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Events</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </section>
+
+    <!-- Mission & Values Section -->
+    <section class="about-mission">
+        <div class="container">
+            <div class="mission-header">
+                <span class="section-label">What We Stand For</span>
+                <h2>Our Mission & Values</h2>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <h3>Excellence</h3>
+                    <p>We strive for musical excellence in every performance, pushing boundaries and raising standards.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Community</h3>
+                    <p>Building connections through music, bringing together students, families, and communities.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Growth</h3>
+                    <p>Fostering personal and artistic development through mentorship and collaboration.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Impact</h3>
+                    <p>Creating meaningful experiences that inspire, uplift, and transform lives through music.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="about-team">
+        <div class="container">
+            <div class="team-header">
+                <span class="section-label">Leadership</span>
+                <h2>Meet Our Team</h2>
+                <p>Dedicated musicians and enthusiasts passionate about sharing the joy of music.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">
+                            <span>S</span>
+                        </div>
+                    </div>
+                    <h3>Stella Xulin</h3>
+                    <p class="member-role">Co-President, Co-Founder</p>
+                    <p class="member-bio">Events Organizer & Visionary Leader</p>
+                    <div class="member-socials">
+                        <a href="https://www.youtube.com/@FarmingtonMSA" target="_blank" title="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank" title="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">
+                            <span>A</span>
+                        </div>
+                    </div>
+                    <h3>Amanda Huang</h3>
+                    <p class="member-role">Co-President, Co-Founder</p>
+                    <p class="member-bio">Events Organizer & Strategic Director</p>
+                    <div class="member-socials">
+                        <a href="https://www.youtube.com/@FarmingtonMSA" target="_blank" title="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank" title="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+        <div class="container">
+            <h2>Join Our Musical Journey</h2>
+            <p>Be part of a community that celebrates music, fosters growth, and creates lasting impact.</p>
+            <button class="cta-button" onclick="window.location.href='contact-us.html'">Get Involved</button>
+        </div>
+    </section> 
 </body> 

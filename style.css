@@ -1,3 +1,98 @@
+/* Boot Animation Loader */
+.boot-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeOutLoader 0.8s ease-in-out 2.5s forwards;
+}
+
+@keyframes fadeOutLoader {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.boot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo-animation {
+    width: 200px;
+    height: 200px;
+    animation: logoReveal 1.5s ease-in-out;
+}
+
+@keyframes logoReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-180deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.logo-animation img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1));
+}
+
+.loading-bar {
+    width: 300px;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    width: 0%;
+    height: 100%;
+    background: #1a1a1a;
+    border-radius: 10px;
+    animation: loadingProgress 2s ease-in-out forwards;
+}
+
+@keyframes loadingProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.boot-text {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Standard Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -27,18 +122,30 @@
     animation: fadeInUp 0.6s ease-out forwards;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0; 
     background-color: white; 
-    font-family: "Arial", sans-serif; 
+    font-family: "Inter", "Segoe UI", "Arial", sans-serif; 
     background-color: #F9F8F6; 
     width: 100%; 
+    overflow-x: hidden;
 }
 
 
 
 nav {
-    background-color: lightgrey; 
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
     position: sticky; 
     top: 0; 
     z-index: 100; 
@@ -49,7 +156,7 @@ nav {
     height: 10%; 
     justify-content: space-between;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 nav .logo-container {
@@ -113,10 +220,10 @@ nav button {
 } 
 
 nav button:hover {
-    background-color: rgb(196, 196, 196); 
-    color: black;
+    background-color: rgba(255, 255, 255, 0.15); 
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 nav button:active {
@@ -126,73 +233,165 @@ nav button:active {
 
 
 
+/* Enhanced Hero Section */
 .homeintro {
     position: relative; 
     width: 100%; 
-    height: auto; 
-    padding-bottom: 0rem; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url("images/HomeIntroImg.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    overflow: hidden; 
-    aspect-ratio: 2.4 / 1;
+    overflow: hidden;
 }
 
-.homeintro::before {
-    content: '';
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(147,139,225,0.2), rgba(0,0,0,0.1), rgba(147,139,225,0.2));
-    animation: gradientMove 15s ease infinite;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(26, 26, 26, 0.6) 100%);
+    animation: gradientPulse 15s ease infinite;
     background-size: 400% 400%;
-    pointer-events: none;
 }
 
-@keyframes gradientMove {
-    0% {
+@keyframes gradientPulse {
+    0%, 100% {
         background-position: 0% 50%;
     }
     50% {
         background-position: 100% 50%;
     }
-    100% {
-        background-position: 0% 50%;
-    }
-} 
-
-.homeintro p {
-    display: block; 
-    font-size: 7rem; 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0 auto; 
-    text-align: center; 
-    width: 88%; 
-    font-weight: 600; 
-    background: linear-gradient(to right, black, #938BE1, black); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    animation: gradientFlow 8s linear infinite;
-    z-index: 2;
 }
 
-@keyframes gradientFlow {
-    0% {
-        background-position: 200% center;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    animation: heroFadeIn 1s ease-out 2.8s both;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    100% {
-        background-position: -200% center;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
+
+.hero-logo {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 2rem;
+    animation: logoFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 40px rgba(0,0,0,0.3));
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.hero-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    color: white;
+    margin: 1rem 0;
+    letter-spacing: 4px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.2);
+    }
+    50% {
+        text-shadow: 0 4px 30px rgba(0,0,0,0.4), 0 0 60px rgba(255,255,255,0.4);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.95);
+    margin: 1.5rem auto;
+    max-width: 700px;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.hero-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.social-link:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-color: rgba(255,255,255,0.6);
+}
+
+.hero-cta {
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+}
+
+.hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    background: #1a1a1a;
+    color: white;
+}
+
+.hero-cta:active {
+    transform: translateY(-1px);
 }
 
 
@@ -201,17 +400,20 @@ nav button:active {
 
 .homeaboutus {
     position: relative; 
-    transform: translateY(22rem); 
+    margin-top: 4rem; 
     width: 100%; 
     height: auto; 
     text-align: center; 
-    padding-bottom: 10%; 
+    padding: 4rem 0 6%;
+    background: linear-gradient(to bottom, #F9F8F6 0%, #ffffff 50%, #F9F8F6 100%);
 } 
 
 .homeaboutus h1{
     width: 100%; 
     display: block;
-    font-size: 3.7rem; 
+    font-size: 3.7rem;
+    color: #1a1a1a;
+    font-weight: 700;
 } 
 
 .homeaboutus .homeaboutus-grid-container {
@@ -230,7 +432,15 @@ nav button:active {
 .homeaboutus .homeaboutus-top-box {
     width: 48%; 
     height: 100%; 
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.homeaboutus .homeaboutus-top-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
 .homeaboutus .homeaboutus-top-grid-container #homeaboutus-top-left-box{
@@ -244,22 +454,25 @@ nav button:active {
 } 
 
 .homeaboutus .homeaboutus-top-grid-container #homeaboutus-top-left-box button{
-    color: black; 
-    background-color: transparent; 
+    color: white; 
+    background: #1a1a1a;
     font-size: 1.1rem; 
     width: 20%; 
     height: 15%; 
-    border-radius: 50% / 100%;
+    border-radius: 50px;
     flex: 0 0 auto; 
     padding: 0 17.5px; 
-    border: 0.01rem solid black; 
-    border-color: black; 
-    transition: 0.3s ease-in-out; 
+    border: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
 } 
 
 .homeaboutus .homeaboutus-top-grid-container #homeaboutus-top-left-box button:hover {
-    background-color: black; 
-    color: white; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: #000;
 }
 
 .homeaboutus .homeaboutus-top-grid-container #homeaboutus-top-right-box{
@@ -280,51 +493,80 @@ nav button:active {
     width: 100%; 
     display: flex; 
     justify-content: space-between; 
-    transform: translateY(1rem); 
+    margin-top: 1rem; 
 } 
 
 .homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box {
     width: calc(92.5% / 3); 
-    aspect-ratio: 1.5/1; 
-    background: #f0f0f0; 
+    min-height: 280px;
+    padding: 2rem 1rem;
+    background: white;
     display: flex; 
     align-items: center; 
     justify-content: center;
     text-align: center; 
-    flex-direction: column; 
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #1a1a1a;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box:hover::before {
+    transform: scaleX(1);
+}
+
+.homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 } 
 
 .homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box p {
-    font-size: 1.1rem; 
-    width: 80%; 
+    font-size: 1rem; 
+    width: 85%;
+    margin: 0;
 } 
 
 .homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box h2 {
     font-size: 1.4rem; 
     width: 100%; 
-    transform: translateY(45%); 
+    margin: 0.5rem 0;
 } 
 
 .homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box img {
-    width: calc(46/1397); 
-    aspect-ratio: 23/24;
-    overflow: hidden; 
-    position: relative; 
-    transform: translateY(25%); 
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 1rem;
 }
 
 
 
 .homeupcoming {
     position: relative; 
-    transform: translateY(25rem); 
+    margin-top: 4rem;
     display: flex; 
     width: 85%; 
     height: 110%; 
-    margin: auto; 
+    margin-left: auto;
+    margin-right: auto;
     background: transparent; 
     justify-content: center; 
-    margin-bottom: 10%; 
+    margin-bottom: 6%;
+    padding: 2rem 0;
 } 
 
 .homeupcoming .homeupcoming-description { 
@@ -336,32 +578,37 @@ nav button:active {
 } 
 
 .homeupcoming .homeupcoming-description h2 {
-    font-size: 3.5rem; 
+    font-size: 3.5rem;
+    color: #1a1a1a;
+    font-weight: 700;
 } 
 
 .homeupcoming .homeupcoming-description p {
     font-size: 1.1rem; 
-    transform: translateY(-1rem); 
+    margin-top: 0;
 } 
 
 .homeupcoming .homeupcoming-description button {
-    color: black; 
-    background-color: transparent; 
+    color: white; 
+    background: #1a1a1a;
     font-size: 1rem; 
     width: 25%; 
     height: 7%; 
-    border-radius: 50% / 100%;
+    border-radius: 50px;
     flex: 0 0 auto; 
     padding: 0 17.5px; 
-    border: 0.01rem solid black; 
-    border-color: black; 
+    border: none;
     text-align: center; 
-    transition: 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
 } 
 
 .homeupcoming .homeupcoming-description button:hover {
-    background: black; 
-    color: white; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: #000;
 } 
 
 .homeupcoming .homeupcoming-grid-container {
@@ -394,14 +641,30 @@ nav button:active {
 .homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-left-grid #homeupcoming-left-top-box{
     width: 100%; 
     min-height: 48%; 
-    background: #f0f0f0; 
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
 } 
+
+.homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-left-grid #homeupcoming-left-top-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
 
 .homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-left-grid #homeupcoming-left-bottom-box{
     width: 100%; 
     min-height: 48%; 
-    background: #f0f0f0; 
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
 } 
+
+.homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-left-grid #homeupcoming-left-bottom-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
 
 .homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-right-grid {
     background: transparent; 
@@ -415,13 +678,29 @@ nav button:active {
 .homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-right-grid #homeupcoming-right-top-box {
     width: 100%; 
     min-height: 48%; 
-    background: #f0f0f0; 
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
 } 
+
+.homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-right-grid #homeupcoming-right-top-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
 
 .homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-right-grid #homeupcoming-right-bottom-box {
     width: 100%; 
     min-height: 48%; 
-    background: #f0f0f0; 
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+} 
+
+.homeupcoming .homeupcoming-grid-container .homeupcoming-grid .homeupcoming-right-grid #homeupcoming-right-bottom-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 } 
 
 .homeupcoming .homeupcoming-grid-container .homeupcoming-grid h3 {
@@ -466,10 +745,9 @@ nav button:active {
     display: flex; 
     flex-direction: row;
     width: 100%; 
-    margin: auto; 
-    transform: translateY(23rem); 
-    padding-top: 10%; 
-    padding-bottom: 9%;
+    margin: 4rem auto 0; 
+    padding: 6% 0 5%;
+    background: #fafafa;
 } 
 
 .homegetintouch .homegetintouch-contact-us-container {
@@ -481,7 +759,9 @@ nav button:active {
 .homegetintouch .homegetintouch-contact-us-container h1{
     display: flex; 
     font-size: 3.5rem; 
-    align-items: center; 
+    align-items: center;
+    color: #1a1a1a;
+    font-weight: 700;
 } 
 
 .homegetintouch .homegetintouch-contact-us-container .homegetintouch-contact-us-info {
@@ -514,8 +794,8 @@ nav button:active {
     flex-direction: row;
     position: relative; 
     width: 100%; 
-    transform: translateY(23rem); 
-    padding-bottom: 7%; 
+    margin-top: 2rem;
+    padding-bottom: 5%; 
 } 
 
 .homecontactus .homecontactus-email-container {
@@ -527,19 +807,33 @@ nav button:active {
 
 .homecontactus .homecontactus-email-container .homecontactus-box {
     width: 46%; 
-    aspect-ratio: 1.2/1; 
-    background: green; 
+    aspect-ratio: 1.2/1;
     display: flex;
     justify-content: center; 
     align-items: center;
-    background: linear-gradient(to bottom, #dadbf8, #ebecee 70%, #f1f3e8 90%); 
+    background: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 } 
 
 .homecontactus .homecontactus-email-container .homecontactus-box .homecontactus-box-circle { 
     border-radius: 50%;
     width: 35%; 
     aspect-ratio: 1/1; 
-    background: linear-gradient(to bottom, #f7f6fb, #ebecee 90%); 
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: pulseCircle 3s ease-in-out infinite;
+}
+
+@keyframes pulseCircle {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    }
 } 
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container {
@@ -551,7 +845,9 @@ nav button:active {
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container h2 {
     font-size: 2.1rem; 
-    margin-top: 1.2%; 
+    margin-top: 1.2%;
+    color: #1a1a1a;
+    font-weight: 700;
 } 
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container p {
@@ -574,7 +870,8 @@ nav button:active {
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container .homecontactus-email-info-input:focus {
     outline: none;
-    border-color: #938BE1;
+    border-width: 2px;
+    border-color: #1a1a1a;
     transform: translateY(-2px);
 } 
 
@@ -584,7 +881,7 @@ nav button:active {
     justify-content: space-between;
     width: 100%; 
     gap: 2rem; 
-    transform: translateY(-1.5rem); 
+    margin-top: 0.5rem;
 }
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container #homecontactus-email-row1 .homecontactus-email-info-firstname {
@@ -618,33 +915,517 @@ nav button:active {
     height: 10%; 
     align-self: flex-start; 
     margin-top: auto; 
-    background: transparent; 
-    border-radius: 20% / 100%;
+    background: #1a1a1a;
+    color: white;
+    border-radius: 50px;
     flex: 0 0 auto; 
-    border: 1px solid black; 
+    border: none;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 } 
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container .homecontactus-email-info-submit:hover { 
-    background: black; 
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: #000;
 }
 
 .homecontactus .homecontactus-email-container .homecontactus-email-info-container .homecontactus-email-info-submit:active {
-    transform: translateY(1px);
-    box-shadow: none;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 } 
 
 
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .homeaboutus h1,
+    .homeupcoming .homeupcoming-description h2,
+    .homegetintouch h1 {
+        font-size: 2.5rem;
+    }
+    
+    .homeaboutus-top-grid-container,
+    .homeaboutus-bottom-grid-container {
+        flex-direction: column;
+    }
+    
+    .homeaboutus .homeaboutus-top-box,
+    .homeaboutus .homeaboutus-bottom-box {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .homeupcoming {
+        flex-direction: column;
+    }
+    
+    .homeupcoming .homeupcoming-description,
+    .homeupcoming .homeupcoming-grid-container {
+        width: 100%;
+    }
+}
+
+/* Additional Modern Enhancements */
+.homeaboutus-top-grid-container #homeaboutus-top-right-box #homeaboutus-top-right-box-circle {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Improve card icons */
+.homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box img {
+    filter: brightness(0) saturate(100%) invert(10%);
+    transition: all 0.3s ease;
+}
+
+.homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(0%);
+}
+
+/* Enhance headings throughout */
+.homeaboutus .homeaboutus-bottom-grid-container .homeaboutus-bottom-box h2 {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Add subtle animation to event cards */
+.homeupcoming .homeupcoming-grid-container .homeupcoming-grid h3 {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Improve link styles */
+.homegetintouch .homegetintouch-contact-us-container .homegetintouch-contact-us-info a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.homegetintouch .homegetintouch-contact-us-container .homegetintouch-contact-us-info a:hover {
+    color: #000;
+    text-decoration: underline;
+}
 
 /* FINALLY DONE WITH HOME YESSSSSSSSSSS */ 
 
 
+
+/* ======================
+   ABOUT US PAGE - COMPLETELY REDESIGNED
+   ====================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* About Hero Section */
+.about-hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    position: relative;
+}
+
+.about-hero-content h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
+}
+
+.about-hero-subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.about-hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.875rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.scroll-arrow {
+    font-size: 1.5rem;
+}
+
+/* Our Story Section */
+.about-story {
+    padding: 4rem 0;
+    background: white;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.1) 100%);
+}
+
+.story-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.story-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.stats-row {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mission & Values Section */
+.about-mission {
+    padding: 4rem 0;
+    background: #fafafa;
+}
+
+.mission-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.mission-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.mission-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.mission-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Leadership Team Section */
+.about-team {
+    padding: 4rem 0;
+    background: white;
+}
+
+.team-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.team-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.team-header p {
+    font-size: 1.125rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.team-member {
+    background: #fafafa;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.member-photo {
+    margin-bottom: 2rem;
+}
+
+.photo-placeholder {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.team-member h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.member-bio {
+    font-size: 0.9375rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.member-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.member-socials a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.member-socials a:hover {
+    background: #1a1a1a;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* CTA Section */
+.about-cta {
+    padding: 4rem 0;
+    background: #1a1a1a;
+    text-align: center;
+}
+
+.about-cta .container {
+    max-width: 800px;
+}
+
+.about-cta h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.about-cta p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design for About Us */
+@media (max-width: 768px) {
+    .about-hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .story-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .mission-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .stats-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+/* OLD ABOUT US STYLES REMOVED - Page completely redesigned */
 
 .aboutus-our-purpose { 
     position: relative; 
@@ -698,21 +1479,25 @@ nav button:active {
     position: absolute;
     bottom: 17.9%;
     left: 0;
-    color: black; 
-    background-color: transparent; 
+    color: white; 
+    background: #1a1a1a;
     font-size: 1rem; 
     width: 15%; 
     height: 10%; 
-    border-radius: 50% / 100%;
+    border-radius: 50px;
     padding: 0 17.5px; 
-    border: 0.01rem solid black; 
+    border: none;
     text-align: center; 
-    transition: 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
 } 
 
 .aboutus-our-purpose .aboutus-our-purpose-right-container button:hover {
-    background: black; 
-    color: white; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: #000;
 } 
 
 
@@ -741,33 +1526,37 @@ nav button:active {
 
 .aboutus-our-journey .aboutus-our-journey-right h2 { 
     font-size: 3.4rem; 
-    transform: translateY(-15%); 
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 } 
 
 .aboutus-our-journey .aboutus-our-journey-right p { 
     font-size: 1.1rem; 
-    transform: translateY(-35%); 
     width: 90%; 
-    line-height: 1.8rem; 
+    line-height: 1.8rem;
+    margin-bottom: 2rem;
 } 
 
 .aboutus-our-journey .aboutus-our-journey-right button { 
     font-size: 0.89rem; 
-    transform: translateY(-70%); 
     width: 20%; 
-    height: 9%; 
-    color: black; 
-    background-color: transparent; 
-    border-radius: 40% / 100%;
-    padding: 0 17.5px; 
-    border: 0.01rem solid black; 
+    padding: 0.75rem 1.5rem;
+    color: white; 
+    background: #1a1a1a;
+    border-radius: 50px;
+    border: none;
     text-align: center; 
-    transition: 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
 } 
 
 .aboutus-our-journey .aboutus-our-journey-right button:hover {
-    background: black; 
-    color: white; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: #000;
 }
 
 .aboutus-our-journey .aboutus-our-journey-left img { 
@@ -803,39 +1592,41 @@ nav button:active {
 
 .aboutus-our-influence .aboutus-our-influence-text h2 { 
     font-size: 2.5rem; 
-    transform: translateY(-15%); 
-    margin-left: 12%; 
-    font-weight: 600; 
+    margin-left: 12%;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
 } 
 
 .aboutus-our-influence .aboutus-our-influence-text p { 
     font-size: 1.1rem; 
-    transform: translateY(-35%); 
     width: 75%; 
     line-height: 1.8rem; 
-    margin-left: 12%; 
-    font-weight: 100; 
-    transform: translateY(-26%); 
+    margin-left: 12%;
+    margin-bottom: 2rem;
+    font-weight: 100;
 } 
 
 .aboutus-our-influence .aboutus-our-influence-text button { 
     font-size: 0.9rem; 
-    transform: translateY(-70%); 
     width: 18.2%; 
-    height: 10%; 
-    color: black; 
-    background-color: transparent; 
-    border-radius: 40% / 100%;
-    padding: 0 17.5px; 
-    border: 0.01rem solid black; 
+    padding: 0.75rem 1.5rem;
+    color: white; 
+    background: #1a1a1a;
+    border-radius: 50px;
+    border: none;
     text-align: center; 
     margin-left: 12%; 
-    transition: 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
 } 
 
 .aboutus-our-influence .aboutus-our-influence-text button:hover {
-    background: black; 
-    color: white; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: #000;
 } 
 
 
@@ -858,13 +1649,16 @@ nav button:active {
 } 
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container h2 {
-    font-size: 3.8rem; 
+    font-size: 3.8rem;
+    color: #1a1a1a;
+    font-weight: 700;
 } 
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container p {
     text-align: center;  
     font-size: 1.1rem; 
-    transform: translateY(-100%); 
+    margin-top: 0;
+    margin-bottom: 2rem;
 } 
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container {
@@ -885,7 +1679,7 @@ nav button:active {
 }
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Stella-container p {
-    transform: translateY(-50%); 
+    margin: 0.5rem 0;
 } 
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Stella-container .aboutus-meet-our-team-container-icon {
@@ -913,19 +1707,27 @@ nav button:active {
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Stella-container .about-us-meet-our-team-social-links {
     display: flex; 
     flex-direction: row; 
-    justify-content: space-between; 
+    justify-content: center;
     gap: 10px; 
-    transform: translateY(-50%); 
+    margin-top: 1rem;
 }
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Stella-container .about-us-meet-our-team-social-links a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px; 
-    height: 25px; 
+    width: 35px; 
+    height: 35px; 
     border-radius: 50%;
     text-decoration: none;
+    background: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Stella-container .about-us-meet-our-team-social-links a:hover {
+    background: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 } 
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Stella-container .about-us-meet-our-team-social-links a img {
@@ -943,7 +1745,7 @@ nav button:active {
 }
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Amanda-container p {
-    transform: translateY(-50%); 
+    margin: 0.5rem 0;
 } 
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Amanda-container .aboutus-meet-our-team-container-icon {
@@ -971,19 +1773,27 @@ nav button:active {
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Amanda-container .about-us-meet-our-team-social-links {
     display: flex; 
     flex-direction: row; 
-    justify-content: space-between; 
+    justify-content: center;
     gap: 10px; 
-    transform: translateY(-50%); 
+    margin-top: 1rem;
 }
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Amanda-container .about-us-meet-our-team-social-links a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px; 
-    height: 25px; 
+    width: 35px; 
+    height: 35px; 
     border-radius: 50%;
     text-decoration: none;
+    background: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Amanda-container .about-us-meet-our-team-social-links a:hover {
+    background: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 } 
 
 .aboutus-meet-our-team .aboutus-meet-our-team-container .about-us-meet-our-team-pres-container .aboutus-meet-our-team-Amanda-container .about-us-meet-our-team-social-links a img {
@@ -1002,108 +1812,205 @@ nav button:active {
     display: flex; 
     flex-direction: row; 
     width: 100%; 
-    height: 85%; 
+    min-height: 100vh;
     justify-content: center; 
     align-items: center; 
-    background: green; 
-    overflow: hidden; 
+    background: #fafafa;
+    overflow: hidden;
+    padding: 4rem 0;
 } 
 
 .our-work-cards .our-work-cards-musical-showcase {
-    width: 1/3; 
-    height: 100%; 
+    flex: 1;
+    height: 80vh;
+    margin: 0 1rem;
     background-image: url("images/OurWorkMusicalShowcase.jpg"); 
-    background-size: 100% 100%; 
+    background-size: cover;
     background-position: center; 
     display: flex; 
     justify-content: center; 
-    align-items: center; 
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-work-cards .our-work-cards-musical-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+}
+
+.our-work-cards .our-work-cards-musical-showcase:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.our-work-cards .our-work-cards-musical-showcase:hover::before {
+    opacity: 0.8;
 } 
 
 .our-work-cards .our-work-cards-musical-showcase-base {
-    width: 63%; 
-    height: 47.5%; 
-    background: rgb(255, 255, 255, 70%); 
-    transform: translateY(21.5%); 
+    width: 80%; 
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
     display: flex; 
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 } 
 
 .our-work-cards .our-work-cards-musical-showcase-base h3 {
-    font-size: 1.7rem; 
-    font-weight: 600; 
-    margin-bottom: 0; 
+    font-size: 2rem; 
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
 } 
 
 .our-work-cards .our-work-cards-musical-showcase-base p { 
-    margin-top: 4%; 
-    font-size: 1rem; 
-    line-height: 1.75rem; 
+    font-size: 1.1rem; 
+    line-height: 1.75rem;
+    color: #333;
 } 
 
 .our-work-cards .our-work-cards-talent-development {
-    width: 1/3; 
-    height: 100%; 
+    flex: 1;
+    height: 80vh;
+    margin: 0 1rem;
     background-image: url("images/OurWorkTalentDevelopment.jpg"); 
-    background-size: 100% 100%; 
+    background-size: cover;
     background-position: center; 
     display: flex; 
     justify-content: center; 
-    align-items: center; 
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-work-cards .our-work-cards-talent-development::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+}
+
+.our-work-cards .our-work-cards-talent-development:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.our-work-cards .our-work-cards-talent-development:hover::before {
+    opacity: 0.8;
 } 
 
 .our-work-cards .our-work-cards-talent-development-base {
-    width: 63%; 
-    height: 47.5%; 
-    background: rgb(255, 255, 255, 70%); 
-    transform: translateY(21.5%); 
+    width: 80%; 
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
     display: flex; 
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 } 
 
 .our-work-cards .our-work-cards-talent-development-base h3 {
-    font-size: 1.7rem; 
-    font-weight: 600; 
-    margin-bottom: 0; 
+    font-size: 2rem; 
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
 } 
 
 .our-work-cards .our-work-cards-talent-development-base p { 
-    margin-top: 4%; 
-    font-size: 1rem; 
-    line-height: 1.75rem; 
+    font-size: 1.1rem; 
+    line-height: 1.75rem;
+    color: #333;
 } 
 
 .our-work-cards .our-work-cards-performance-experience {
-    width: 1/3; 
-    height: 100%; 
+    flex: 1;
+    height: 80vh;
+    margin: 0 1rem;
     background-image: url("images/OurWorkPerformanceExperience.jpg"); 
-    background-size: 100% 100%; 
+    background-size: cover;
     background-position: center; 
     display: flex; 
     justify-content: center; 
-    align-items: center; 
-} 
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-work-cards .our-work-cards-performance-experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+}
+
+.our-work-cards .our-work-cards-performance-experience:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.our-work-cards .our-work-cards-performance-experience:hover::before {
+    opacity: 0.8;
+}
 
 .our-work-cards .our-work-cards-performance-experience-base {
-    width: 63%; 
-    height: 47.5%; 
-    background: rgb(255, 255, 255, 70%); 
-    transform: translateY(21.5%); 
+    width: 80%; 
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
     display: flex; 
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 } 
 
 .our-work-cards .our-work-cards-performance-experience-base h3 {
-    font-size: 1.7rem; 
-    font-weight: 600; 
-    margin-bottom: 0; 
+    font-size: 2rem; 
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
 } 
 
 .our-work-cards .our-work-cards-performance-experience-base p { 
-    margin-top: 4%; 
-    font-size: 1rem; 
-    line-height: 1.75rem; 
+    font-size: 1.1rem; 
+    line-height: 1.75rem;
+    color: #333;
 } 

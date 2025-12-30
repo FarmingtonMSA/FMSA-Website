@@ -77,6 +77,14 @@ const observer = new IntersectionObserver((entries, observer) => {
 window.onload = function () {
     emailjs.init("osOerPkbsXjU8BTFC");
     
+    // Handle boot loader
+    const bootLoader = document.getElementById('boot-loader');
+    if (bootLoader) {
+        setTimeout(() => {
+            bootLoader.style.display = 'none';
+        }, 3300); // Hide after animation completes (2.5s animation + 0.8s fade out)
+    }
+    
     // Add animations to sections
     const sections = document.querySelectorAll('.homeintro, .homeaboutus, .homeupcoming, .homegetintouch, .homecontactus');
     sections.forEach(section => {
@@ -91,8 +99,8 @@ window.onload = function () {
         observer.observe(card);
     });
 
-    // Add hover animations to images
-    const images = document.querySelectorAll('img');
+    // Add hover animations to images (except logo in boot loader and hero)
+    const images = document.querySelectorAll('img:not(.boot-content img):not(.hero-logo img)');
     images.forEach(img => {
         img.style.transition = 'transform 0.3s ease-in-out';
         img.addEventListener('mouseover', () => {
@@ -101,6 +109,16 @@ window.onload = function () {
         img.addEventListener('mouseout', () => {
             img.style.transform = 'scale(1)';
         });
+    });
+
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent && scrolled < window.innerHeight) {
+            heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+            heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+        }
     });
 }
 
