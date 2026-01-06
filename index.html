@@ -1,15 +1,14 @@
-<!--tab titles-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset = "UTF-8"> 
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>FMSA - Scholars in Sound</title> 
-    <link rel = "icon" type = "image/png" href = "images/FMSALogoTransparent.png">
+    <title>FMSA - Farmington Music Students Association</title> 
+    <link rel="icon" type="image/png" href="images/FMSALogoTransparent.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
             emailjs.init({
@@ -17,212 +16,397 @@
             });
         })();
     </script>
-    <script src = "script.js"></script> 
-    <link rel="stylesheet" href = "style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <!-- Boot Animation Loader -->
-    <div id="boot-loader" class="boot-loader">
-        <div class="boot-content">
-            <div class="logo-animation">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
                 <img src="images/FMSALogoTransparent.png" alt="FMSA Logo">
+                <span>FMSA</span>
             </div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="community/index.html" class="nav-link">Community Outreach</a>
+                <a href="scholars/index.html" class="nav-link">Scholars in Sound</a>
+                <a href="team/index.html" class="nav-link">Our Team</a>
+                <a href="events/index.html" class="nav-link">Events</a>
+                <a href="gallery/index.html" class="nav-link">Gallery</a>
+                <a href="contact/index.html" class="nav-link">Contact</a>
             </div>
-            <p class="boot-text">Scholars in Sound</p>
-        </div>
-    </div>
-
-    <nav class = navbar>
-        <div class = "logo-container">
-            <div class = "logo-stack">
-                <img src = "images/FMSALogo.png" id = "logo" onerror = "loadingerror('logo-fallback', 'logo')"> 
-                <div id = "logo-fallback" style = "display: none; color: #fff; text-align: center; width: 100%; position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: 10; ">Logo unavailable</div>
-            </div>
-        </div>  
-
-        <div class = "brand">
-            <p>Scholars in Sound - FMSA</p>
-        </div>
-
-        <div id = "nav-link" class = "nav-link">
-            <button id = "home" onclick = "window.location.href='index.html'" onclick = "navbarbuttonclick('home')" style = "text-decoration: underline;">Home</button>
-            <button id = "about-us" onclick = "window.location.href='about-us.html'" onclick = "navbarbuttonclick('about-us')">About Us</button> 
-            <button id = "our-work" onclick = "window.location.href='our-work.html'" onclick = "navbarbuttonclick('our-work')">Our Work</button>
-            <button id = "programs" onclick = "window.location.href='programs.html'" onclick = "navbarbuttonclick('programs')">Programs</button>
-            <button id = "events" onclick = "window.location.href='events.html'" onclick = "navbarbuttonclick('events')">Events</button>
-            <button id = "contact-us" onclick = "window.location.href='contact-us.html'" onclick = "navbarbuttonclick('contact-us')">Contact Us</button>
-            <button onclick = "scrollup()">|||</button>
         </div>
     </nav>
 
-    <div class = "home">
+    <!-- Hero Section -->
+    <section id="welcome" class="hero-section">
+        <div class="hero-content-full">
+            <div class="hero-logo-large">
+                <img src="images/FMSALogoTransparent.png" alt="FMSA Logo">
+            </div>
+            <h1 class="hero-title">Welcome to FMSA</h1>
+            <p class="hero-subtitle">Farmington Music Students Association</p>
+            <p class="hero-description">A student-led nonprofit that believes in the healing power of music. We bring people together through shared sound and emotion, using music as a bridge between generations, cultures, and hearts.</p>
+            <div class="hero-buttons">
+                <a href="community/index.html" class="btn btn-primary">Learn More</a>
+                <a href="contact/index.html" class="btn btn-outline">Join Us</a>
+            </div>
+        </div>
+    </section>
 
-        <div class = "homeintro"> 
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="hero-logo">
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="about-text">Our organization is built on two branches. <strong>Community Outreach</strong> brings live performances and music therapy to local spaces such as senior centers, libraries, and schools. <strong>Scholars in Sound</strong> extends our reach globally, curating performances, AI-generated compositions, and playlists for hospitals and care centers around the world.</p>
+                <p class="about-text-highlight">Every note we play carries the same purpose: to bring comfort, joy, and connection through the language of music.</p>
+            </div>
+            
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <h3>Community Outreach</h3>
+                    <p>Our Community Outreach branch brings the restorative power of music directly to those who need it most. Through live performances and music therapy programs, we visit senior living communities, retirement homes, and centers for individuals with disabilities.</p>
+                    <a href="community/index.html" class="read-more">Learn More →</a>
+                </div>
+                <div class="branch-card">
+                    <h3>Scholars in Sound</h3>
+                    <p>Our academic division explores the science behind the therapeutic effects of music. We publish student-written articles, curate performance videos, and create AI-generated compositions for therapeutic use.</p>
+                    <a href="scholars/index.html" class="read-more">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Section -->
+    <section class="why-join-section">
+        <div class="container">
+            <h2 class="section-title">Why Join FMSA?</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">🎵</div>
+                    <h3>Empowerment and Support</h3>
+                    <p>We strive to make every member feel valued and heard in a community where they are supported. Your voice drives our organization, whether you're suggesting a performance venue or contributing ideas for one of our academic projects.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">⏰</div>
+                    <h3>Manageable Commitment</h3>
+                    <p>We understand school and life keeps you busy, which is why participating in FMSA is 100% voluntary. By offering frequent opportunities throughout the Farmington area, we ensure members always have opportunities to help out and grow.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌍</div>
+                    <h3>Open Access and Connection</h3>
+                    <p>Joining FMSA is straightforward! You are not required to play an instrument, as we also rely on non-musicians for essential volunteer work, fundraising, and logistics. By being a part of our network, you'll immediately have access to our expansive network worldwide.</p>
+                </div>
+            </div>
+            <div class="cta-center">
+                <a href="contact/index.html" class="btn btn-primary">Join Our Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Outreach Section -->
+    <section id="community" class="community-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Impact</span>
+                <h2 class="section-title">Community Outreach</h2>
+            </div>
+            <div class="community-content">
+                <div class="community-text">
+                    <p>Our Community Outreach branch brings the restorative power of music directly to those who need it most. Through live performances and music therapy programs, we visit senior living communities, retirement homes, and centers for individuals with disabilities, using music to spark joy and connection.</p>
+                    <p>This initiative has grown to include hospitals, where our performances and curated sound experiences offer comfort to patients and their families around the world.</p>
+                </div>
+                <div class="community-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Performances</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Venues</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholars in Sound Section -->
+    <section id="scholars" class="scholars-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Academic Excellence</span>
+                <h2 class="section-title">Scholars in Sound</h2>
+            </div>
+            <div class="scholars-content">
+                <p class="scholars-intro">Scholars in Sound is our academic division, exploring the science behind the therapeutic effects of music. We regularly publish student-written articles, curate performance videos, and create calming playlists.</p>
+                
+                <div class="scholars-features">
+                    <div class="feature-card">
+                        <h3>AI-Generated Compositions</h3>
+                        <p>This interdisciplinary library of music, featuring student-coded AI-generated compositions, serves as a soothing resource for patients, connecting our passion for music with new innovations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Global Connections</h3>
+                        <p>We foster cross-cultural communication through connections with student groups in Canada, China, and Australia. Locally, we partner with art galleries to create events that blend visual and auditory art.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Digital Bridge</h3>
+                        <p>Our student-coded AI helps elders connect with the increasingly fast-paced and digital world through music, bridging generational gaps with technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles & Videos Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Articles & Performances</h2>
+            <div class="content-tabs">
+                <button class="tab-button active" data-tab="articles">Articles</button>
+                <button class="tab-button" data-tab="videos">Videos</button>
+            </div>
+            
+            <div class="tab-content active" id="articles">
+                <div class="coming-soon-message">
+                    <h3>Articles Coming Soon</h3>
+                    <p>Our student research team is currently working on publishing articles about music therapy, AI compositions, and cross-cultural collaborations.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="videos">
+                <div class="coming-soon-message">
+                    <h3>Performance Videos Coming Soon</h3>
+                    <p>Check out our <a href="https://youtube.com/@farmingtonmsa" target="_blank" class="inline-link">YouTube channel</a> for our latest performances and student showcases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Section -->
+    <section id="why-join" class="why-join-section">
+        <div class="container">
+            <h2 class="section-title">Why Join FMSA?</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <h3>Empowerment and Support</h3>
+                    <p>We strive to make every member feel valued and heard in a community where they are supported. Your voice drives our organization, whether you're suggesting a performance venue, looking for advice from a music instructor, or contributing ideas for one of our academic projects.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Manageable Commitment</h3>
+                    <p>We understand school and life keeps you busy, which is why participating in FMSA is 100% voluntary. By offering frequent opportunities throughout the Farmington area and more, we ensure members always have opportunities to help out and grow.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Open Access and Connection</h3>
+                    <p>Joining FMSA is straightforward! You are not required to play an instrument, as we also rely on non-musicians for essential volunteer work, fundraising, and logistics. By being a part of our network, you'll have access to our expansive global network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="team-intro">Dedicated musicians and leaders passionate about sharing the joy of music.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">S</div>
+                    </div>
+                    <h3>Stella Xulin</h3>
+                    <p class="member-role">Co-President & Co-Founder</p>
+                    <p class="member-bio">Events Organizer & Visionary Leader</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">A</div>
+                    </div>
+                    <h3>Amanda Huang</h3>
+                    <p class="member-role">Co-President & Co-Founder</p>
+                    <p class="member-bio">Strategic Director & Community Builder</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="events-intro">FMSA hosts a variety of events throughout the year, from intimate concerts in retirement homes to larger scale collaborations with charities and foundations. We also support and promote young artist recitals.</p>
+            <div class="events-note">
+                <p><strong>All official event programs, schedules, and volunteer sign-ups are managed through our community Discord server.</strong></p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="month">TBA</span>
+                        <span class="day">--</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Retirement Home Concert Series</h3>
+                        <p>Monthly performances bringing joy to senior communities</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="month">TBA</span>
+                        <span class="day">--</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Young Artist Recital</h3>
+                        <p>Showcasing talented student musicians</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connections Section -->
+    <section class="connections-section">
+        <div class="container">
+            <h2 class="section-title">Our Global Network</h2>
+            <p class="connections-intro">We are proud to partner with a diverse range of local and international organizations. These collaborations offer our members meaningful opportunities for artistic growth, mentorship, and global connection through music.</p>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>Probus Greater Hartford</h3>
+                    <p>Probus is a vital community group proudly serving over 400 individuals with disabilities. We collaborate with them to be adaptive and introduce rural music to their members. Our partnership focuses on creating joyful musical experiences to foster connection through music.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Lower Mainland Music Students' Association</h3>
+                    <p class="partner-location">Vancouver, Canada</p>
+                    <p>We have a close relationship with our founding peers at the LMMSA in Vancouver. This connection allows us to have cross-border feedback with each other, support fundraisers, and culturally exchange ideas. We are proud to be a part of this international student-led music assembly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <p class="gallery-intro">Moments from our performances and events</p>
+            
+            <div class="coming-soon-message">
+                <h3>Gallery Images Coming Soon</h3>
+                <p>We're currently curating photos from our recent performances and events. Check back soon to see our community in action!</p>
+                <p style="margin-top: 1rem;">Follow us on <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank" class="inline-link">Instagram</a> for live updates and behind-the-scenes content.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="instagram-section">
+        <div class="container">
+            <h2 class="section-title">Follow Our Journey on Instagram</h2>
+            <div class="instagram-header">
+                <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank" class="instagram-link">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @fmsa.scholarsinsound
+                </a>
+            </div>
+            <p class="instagram-cta">Visit our Instagram page to see our latest performances, behind-the-scenes moments, and community impact!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Join our musical journey! Follow our social media to receive the latest updates on our events and projects.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <h3>Email Us</h3>
+                            <a href="mailto:contact@fmsa.org">contact@fmsa.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Location</h3>
+                            <p>Farmington, Connecticut</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Follow Us</h3>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank" class="social-btn instagram">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                    Instagram
+                                </a>
+                                <a href="https://youtube.com/@farmingtonmsa" target="_blank" class="social-btn youtube">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                    YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <input type="text" id="firstName" placeholder="First Name" required>
+                            <input type="text" id="lastName" placeholder="Last Name" required>
+                        </div>
+                        <input type="email" id="email" placeholder="Email *" required>
+                        <input type="tel" id="phone" placeholder="Phone">
+                        <textarea id="message" placeholder="Message *" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
                     <img src="images/FMSALogoTransparent.png" alt="FMSA Logo">
+                    <p>Farmington Music Students Association</p>
                 </div>
-                <h1 class="hero-title">SCHOLARS IN SOUND</h1>
-                <p class="hero-subtitle">Empowering young musicians through performance and community engagement</p>
-                <div class="hero-socials">
-                    <a href="https://facebook.com" target="_blank" class="social-link" aria-label="Facebook">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" class="social-link" aria-label="Twitter">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                    </a>
-                    <a href="https://youtube.com" target="_blank" class="social-link" aria-label="YouTube">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#welcome">Home</a>
+                    <a href="#community">Community Outreach</a>
+                    <a href="#scholars">Scholars in Sound</a>
+                    <a href="#team">Our Team</a>
                 </div>
-                <button class="hero-cta" onclick="document.querySelector('.homeaboutus').scrollIntoView({behavior: 'smooth'})">
-                    Explore Our Work
-                </button>
-            </div>
-        </div>
-
-        <div class = "homeaboutus"> 
-            <h1 id = "homeaboutus-title">About Us </h2> 
-            <div class = "homeaboutus-grid-container">
-                <div class = "homeaboutus-top-grid-container">
-                    <div class = "homeaboutus-top-box" id = "homeaboutus-top-left-box">Our Programs
-                        <button id = "homeaboutus-top-left-box-button">Explore</button>
-                    </div>
-                    <div class = "homeaboutus-top-box" id = "homeaboutus-top-right-box">
-                        <div id = "homeaboutus-top-right-box-circle"></div>
-                    </div>
-                </div> 
-                <div class = "homeaboutus-bottom-grid-container">
-                    <div class = "homeaboutus-bottom-box" id = "homeaboutus-top-left-box"> 
-                        <img src = "images/PerformanceOpportunitiesImg.png"> 
-                        <h2>Performance Opportunities</h2>
-                        <p>Engage in hands-on music workshops to enhance your skill and knowledge. </p> 
-                    </div> 
-                    <div class = "homeaboutus-bottom-box" id = "homeaboutus-top-middle-box"> 
-                        <img src = "images/CollaborativeProjectsImg.png"> 
-                        <h2>Collaborative Projects</h2>
-                        <p>Showcase your talent through various performance opportunities and reach a wider audeince. </p> 
-                    </div> 
-                    <div class = "homeaboutus-bottom-box" id = "homeaboutus-top-right-box"> 
-                        <img src = "images/SkillDevelopmentImg.png"> 
-                        <h2>Skill Development</h2>
-                        <p>Collaborate with fellow musicians on exciting projects that promote creativity and teamwork. </p> 
-                    </div> 
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <a href="https://www.instagram.com/fmsa.scholarsinsound/" target="_blank">Instagram</a>
+                    <a href="https://youtube.com/@farmingtonmsa" target="_blank">YouTube</a>
+                    <a href="mailto:contact@fmsa.org">Email</a>
                 </div>
             </div>
-        </div>
-
-        <div class = "homeupcoming">
-            <div class = "homeupcoming-description">
-                <h2>Upcoming Events</h2> 
-                <p>Join us for our upcoming concert, a night filled with music, passion, and talent. </p> 
-                <button>Register</button>
-            </div>
-            <div class = "homeupcoming-grid-container">
-                <div class = "homeupcoming-grid">
-                    <div class = "homeupcoming-left-grid">
-                        <div class = "homeupcoming-left-box" id = "homeupcoming-left-top-box"> 
-                            <img src = "images/RetirementHomeVisitsImg.png"> 
-                            <h3>Retirement Home Visits</h3>
-                            <p>We will visit senior and retirement homes often to share our music for the seniors living there! </p>
-                        </div>
-                        <div class = "homeupcoming-left-box" id = "homeupcoming-left-bottom-box">
-                            <img src = "images/HospitalHospicePerformancesImg.png"> 
-                            <h3>Hospital/Hospice Performances</h3> 
-                            <p>Our connections with hospitals and hospices will allow us to perform for patients living there, giving them more chances to experience live performances. </p>
-                        </div>
-                    </div>
-
-                    <div class = "homeupcoming-right-grid">
-                        <div class = "homeupcoming-right-box" id = "homeupcoming-right-top-box">
-                            <img src = "images/MusicalShowcaseFundraisersImg.png"> 
-                            <h3>Musical Showcase Fundraisers</h3>
-                            <p>Performances in public spaces such as restaurants, malls, and more. We aim to gain funds for music education or in order to donate for a greater cause. </p>
-                        </div>
-                        <div class = "homeupcoming-right-box" id = "homeupcoming-right-bottom-box"> 
-                            <img src = "images/MusicPlaylistImg.png"> 
-                            <h3 id = "homeupcomingh3">Music Playlist</h3> 
-                            <p id = "homeupcomingdescription">Created by our student-led music association, this international playlist blends live performances from young musicians with AI-generated pieces composed using student-written algorithms. Combining music... </p>
-                            <button onclick = "homeupcomingtext()" id = "homeupcomingbutton">Show More</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Farmington Music Students Association. All rights reserved.</p>
             </div>
         </div>
-
-        <div class = "homegetintouch">
-            <div class = "homegetintouch-contact-us-container">
-                <h1>Get in Touch</h1> 
-                <div class = "homegetintouch-contact-us-info">
-                    <h3>Contact Us</h3> 
-                    <p>Visit Us at Farmington, US</p> 
-                    <a href = "tel:+8605082236">Call</a> 
-                    <p>Support</p>
-                </div>
-            </div> 
-        </div>
-
-        <div class = "homecontactus">
-            <div class = "homecontactus-email-container">
-                <div class = "homecontactus-box">
-                    <div class = "homecontactus-box-circle"></div>
-                </div>
-
-                <div class = "homecontactus-email-info-container">
-                    <h2>Contact us</h2> 
-
-                    <div class = "homecontactus-email-row" id = "homecontactus-email-row1">
-                        <div class = "homecontactus-email-info-firstname">
-                            <p id = "Firstname-label">First name</p>
-                            <input class = "homecontactus-email-info-input" id = "FirstName" placeholder = "  First name"> 
-                        </div>
-
-                        <div class = "homecontactus-email-info-lastname">
-                            <p id = "Lastname-label">Last name</p>
-                            <input class = "homecontactus-email-info-input" id = "Lastname" placeholder = "  Last name"> 
-                        </div>
-                    </div>
-
-
-                    <div class = "homecontactus-email-row" id = "homecontactus-email-row2">
-                        <div class = "homecontactus-email-info-email">
-                            <p id = "Email-label">Email *</p>
-                            <input class = "homecontactus-email-info-input" id = "Email" placeholder = "  Email"> 
-                        </div>
-
-                        <div class = "homecontactus-email-info-phone">
-                            <p id = "Phone-label">Phone</p>
-                            <input class = "homecontactus-email-info-input" id = "Phone" placeholder = "  Phone"> 
-                        </div>
-                    </div>
-
-
-                    <div class = "homecontactus-email-row" id = "homecontactus-email-row3">
-                        <div class = "homecontactus-email-info-message">
-                            <p id = "Message-label">Message *</p>
-                            <textarea class = "homecontactus-email-info-input" id = "Message" placeholder = "  Message"></textarea>
-                        </div>
-                    </div> 
-
-                    <input class = "homecontactus-email-info-submit" type = "Submit" onclick = "homecontactus_sendemail()">
-                </div>
-            </div>
-        </div>
-
-    </div> 
+    </footer>
 </body>
+</html>
